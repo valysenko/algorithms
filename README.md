@@ -1,1 +1,1 @@
-Implementation of algorithms and data structures
+Implementation and testing of computer science algorithms and data structures
