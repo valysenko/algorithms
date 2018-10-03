@@ -10,9 +10,9 @@ class CountingSortV1Test extends TestCase
     public function testSort()
     {
         $countingSort = new CountingSortV1();
-        $result = $countingSort->sort([5, 5, 0, 2, 4, 9, 1, 0, 7]);
+        $result = $countingSort->sort([5, 0, 2, 2, 4, 9, 1, 7]);
 
-        $this->assertEquals($result, [0, 0, 1, 2, 4, 5, 5, 7, 9]);
+        $this->assertEquals($result, [0, 1, 2, 2, 4, 5, 7, 9]);
     }
 
 }
