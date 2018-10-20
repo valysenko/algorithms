@@ -2,6 +2,8 @@
 
 namespace App\DataStructures;
 
+use App\DataStructures\Nodes\Node;
+
 class LinkedQueue
 {
     /**

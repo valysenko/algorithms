@@ -1,15 +1,19 @@
 <?php
 
-namespace App\DataStructures;
+namespace App\DataStructures\Nodes;
 
 
-class Node
+class BidirectionalNode
 {
     /**
      * @var mixed
      */
     private $item;
 
+    /**
+     * @var mixed
+     */
+    private $prev;
 
     /**
      * @var mixed
@@ -44,7 +48,23 @@ class Node
     /**
      * @return mixed
      */
-    public function getNext(): ?Node
+    public function getPrev(): ?BidirectionalNode
+    {
+        return $this->prev;
+    }
+
+    /**
+     * @param mixed $prev
+     */
+    public function setPrev($prev)
+    {
+        $this->prev = $prev;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNext(): ?BidirectionalNode
     {
         return $this->next;
     }

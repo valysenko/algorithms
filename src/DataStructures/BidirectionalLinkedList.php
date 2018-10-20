@@ -2,6 +2,8 @@
 
 namespace App\DataStructures;
 
+use App\DataStructures\Nodes\BidirectionalNode;
+
 /**
  * Class BidirectionalLinkedList
  * @package App\DataStructures
