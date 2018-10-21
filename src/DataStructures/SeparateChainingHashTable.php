@@ -101,11 +101,6 @@ class SeparateChainingHashTable
         }
     }
 
-    public function el()
-    {
-       dump($this->elements); die;
-    }
-
     /**
      * @return int
      */
