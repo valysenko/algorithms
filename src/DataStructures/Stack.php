@@ -52,4 +52,12 @@ class Stack
         throw new \Exception('Stack is empty');
     }
 
+    /**
+     * @return bool
+     */
+    public function isEmpty()
+    {
+        return count($this->elements) === 0;
+    }
+
 }
