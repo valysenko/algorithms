@@ -24,7 +24,7 @@ class LinkedQueue
     /**
      * @return bool
      */
-    private function isEmpty()
+    public function isEmpty()
     {
         return $this->size == 0;
     }
