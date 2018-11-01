@@ -16,25 +16,18 @@ class ConnectedComponentsTest extends TestCase
 
     protected function setUp()
     {
-        // Oriented graph
-        self::$graph = new Graph();
+        // Directed graph
+        self::$graph = new Graph(Graph::DIRECTED_TYPE);
         self::$graph->insertEdge('a', 'b');
         self::$graph->insertEdge('a', 'c');
-        self::$graph->insertEdge('b', 'a');
-        self::$graph->insertEdge('c', 'a');
 
         self::$graph->insertEdge('d', 'e');
-        self::$graph->insertEdge('e', 'd');
 
         self::$graph->insertEdge('f', 'g');
         self::$graph->insertEdge('g', 'h');
         self::$graph->insertEdge('g', 'i');
-        self::$graph->insertEdge('g', 'f');
-        self::$graph->insertEdge('h', 'g');
-        self::$graph->insertEdge('i', 'g');
 
         self::$graph->insertEdge('p', 'q');
-        self::$graph->insertEdge('q', 'p');
     }
 
     public function testFindConnectedComponents()

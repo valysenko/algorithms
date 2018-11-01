@@ -3,10 +3,10 @@
 namespace App\Tests\Services\Sorting;
 
 use App\DataStructures\Graph;
-use App\Services\Graph\BFS;
+use App\Services\Graph\DFSR;
 use PHPUnit\Framework\TestCase;
 
-class BFSTest extends TestCase
+class DFSRTest extends TestCase
 {
 
     /**
@@ -15,9 +15,9 @@ class BFSTest extends TestCase
     protected static $graph;
 
     /**
-     * @var BFS
+     * @var DFSR
      */
-    protected static $bfs;
+    protected static $dfsr;
 
     protected function setUp()
     {
@@ -30,30 +30,22 @@ class BFSTest extends TestCase
         self::$graph->insertEdge('c', 'e');
         self::$graph->insertEdge('a', 'd');
 
-        self::$bfs = new BFS();
+        self::$dfsr = new DFSR();
     }
 
-
-    public function testBFS()
+    public function testDFS()
     {
-        $expectedBFSNumbers = [
+        $expectedDFSNumbers = [
             "s" => 1,
             "b" => 2,
-            "a" => 3,
-            "d" => 4,
+            "d" => 3,
+            "e" => 4,
             "c" => 5,
-            "e" => 6
+            "a" => 6
         ];
 
-        self::$bfs->bfs(self::$graph, 's');
-        $this->assertEquals(self::$bfs->getVisited(), $expectedBFSNumbers);
-    }
-
-    public function testVertexDoesNotExistException()
-    {
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('Vertex z does not exist');
-        self::$bfs->bfs(self::$graph, 'z');
+        self::$dfsr->dfs(self::$graph, 's');
+        $this->assertEquals(self::$dfsr->getVisited(), $expectedDFSNumbers);
     }
 
 }

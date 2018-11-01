@@ -9,12 +9,10 @@ use App\DataStructures\LinkedQueue;
  * Find connected components in the Undirected graph
  * - using BFS algorithm
  *
- *
- * Class BFS
+ * Class ConnectedComponents
  */
 class ConnectedComponents
 {
-
     /**
      * O(n+m)
      * n - number of vertices
