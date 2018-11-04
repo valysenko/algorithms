@@ -10,20 +10,8 @@ use App\DataStructures\LinkedQueue;
  *
  * Class BFS
  */
-class BFS
+class BFS extends GraphVisited
 {
-    /**
-     * @var array
-     */
-    private $visited;
-
-    /**
-     * @return array
-     */
-    public function getVisited()
-    {
-        return $this->visited;
-    }
 
     /**
      * O(n+m)

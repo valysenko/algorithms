@@ -12,20 +12,8 @@ use App\DataStructures\Stack;
  * Class DFSR
  * @package App\Services\Graph
  */
-class DFSR
+class DFSR extends GraphVisited
 {
-    /**
-     * @var array
-     */
-    private $visited;
-
-    /**
-     * @return array
-     */
-    public function getVisited()
-    {
-        return $this->visited;
-    }
 
     /**
      * O(n+m)

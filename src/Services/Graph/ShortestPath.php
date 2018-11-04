@@ -12,20 +12,8 @@ use App\DataStructures\LinkedQueue;
  * Class ShortestPath
  * @package App\Services\Graph
  */
-class ShortestPath
+class ShortestPath extends GraphVisited
 {
-    /**
-     * @var array
-     */
-    private $visited;
-
-    /**
-     * @return array
-     */
-    public function getVisited()
-    {
-        return $this->visited;
-    }
 
     /**
      * O(n+m)

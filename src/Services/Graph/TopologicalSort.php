@@ -16,20 +16,8 @@ use App\DataStructures\Graph;
  * Class TopologicalSort
  * @package App\Services\Graph
  */
-class TopologicalSort
+class TopologicalSort extends GraphVisited
 {
-    /**
-     * @var array
-     */
-    private $visited;
-
-    /**
-     * @return array
-     */
-    public function getVisited()
-    {
-        return $this->visited;
-    }
 
     /**
      * @var int
