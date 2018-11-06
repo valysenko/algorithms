@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\DataStructures\Graph;
+use App\DataStructures\WeightedGraph;
 use App\Services\Graph\DFS;
 use App\Services\Graph\DFSR;
+use App\Services\Graph\DijkstraShortestPath;
 use App\Services\Graph\StronglyConnectedComponents;
 use App\Services\Graph\TopologicalSort;
 use App\Services\Graph\TransposeGraph;

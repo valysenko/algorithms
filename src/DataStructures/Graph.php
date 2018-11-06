@@ -6,38 +6,8 @@ namespace App\DataStructures;
  * Class Graph
  * @package App\DataStructures
  */
-class Graph
+class Graph extends BaseGraph
 {
-
-    public const DIRECTED_TYPE = "Directed";
-    public const UNDIRECTED_TYPE = "Undirected";
-
-    /**
-     * @var string
-     */
-    private $type;
-
-    /**
-     * @var array
-     */
-    private $adjacencyList;
-
-    /**
-     *
-     * @var array
-     */
-    private $vertices;
-
-    /**
-     * Graph constructor.
-     * @param string $type
-     */
-    public function __construct(string $type)
-    {
-        $this->type = $type;
-        $this->adjacencyList = [];
-        $this->vertices = [];
-    }
 
     /**
      * @param $vertex1
@@ -60,44 +30,6 @@ class Graph
             $this->vertices[] = $vertex2;
         }
 
-    }
-
-    /**
-     * @return array
-     */
-    public function getAdjacencyList()
-    {
-        return $this->adjacencyList;
-    }
-
-    /**
-     * @return array
-     */
-    public function getVertices()
-    {
-        return $this->vertices;
-    }
-
-    /**
-     * @param $vertex
-     * @return bool
-     */
-    public function vertexExists($vertex)
-    {
-        return in_array($vertex, $this->vertices);
-    }
-
-    /**
-     * @param $vertex
-     * @return array|null
-     */
-    public function getConnectedVerticesList($vertex)
-    {
-        if (array_key_exists($vertex, $this->adjacencyList)) {
-            return $this->adjacencyList[$vertex];
-        }
-
-        return null;
     }
 
 }
