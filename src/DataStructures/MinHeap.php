@@ -3,10 +3,10 @@
 namespace App\DataStructures;
 
 /**
- * Class MaxHeap
+ * Class MinHeap
  * @package App\DataStructures
  */
-class MaxHeap extends BaseHeap
+class MinHeap extends BaseHeap
 {
 
     /**
@@ -15,7 +15,7 @@ class MaxHeap extends BaseHeap
      *    (i)
      * (l)   (r)
      *
-     * => Method restores max heap properties: (i)>(l) and (i)>(r)
+     * => Method restores min heap properties: (i)<(l) and (i)<(r)
      *
      * @param int $x - position of current element
      * @param int $n - number of not used array elements in the heap (for sorting)
@@ -27,22 +27,23 @@ class MaxHeap extends BaseHeap
         $arraySize = $this->size();
         $actualHeapSize = $arraySize - $n;
 
-        if ($x < $arraySize && $l < $actualHeapSize && isset($this->elements[$l]) && $this->elements[$l] > $this->elements[$x]) {
-            $largest = $l;
+        if ($x < $arraySize && $l < $actualHeapSize && isset($this->elements[$l]) && $this->elements[$l] < $this->elements[$x]) {
+            $smallest = $l;
         } else {
-            $largest = $x;
+            $smallest = $x;
         }
 
-        if ($x < $arraySize && $r < $actualHeapSize &&isset($this->elements[$r]) && $this->elements[$r] > $this->elements[$largest]) {
-            $largest = $r;
+        if ($x < $arraySize && $r < $actualHeapSize &&isset($this->elements[$r]) && $this->elements[$r] < $this->elements[$smallest]) {
+            $smallest = $r;
         }
 
-        if ($largest != $x) {
-            $this->exch($x, $largest);
-            $this->heapify($largest, $n);
+        if ($smallest != $x) {
+            $this->exch($x, $smallest);
+            $this->heapify($smallest, $n);
         }
 
     }
+
 
 
     /**
@@ -51,7 +52,7 @@ class MaxHeap extends BaseHeap
      * @return mixed
      * @throws \Exception
      */
-    public function extractMax()
+    public function extractMin()
     {
         if ($this->size() === 0) {
             throw new \Exception('Heap is empty');
@@ -75,16 +76,15 @@ class MaxHeap extends BaseHeap
     {
         $this->elements[] = $element;
         $position = $this->size() -1;
-        while ($position > 0 && $this->elements[$this->parentIndex($position)] < $this->elements[$position]) {
+        while ($position > 0 && $this->elements[$this->parentIndex($position)] > $this->elements[$position]) {
             $parentPosition = $this->parentIndex($position);
             $this->exch($position, $parentPosition);
             $position = $this->parentIndex($position);
         }
     }
 
-
     /**
-     * ascending order
+     * descending order
      * O(n*log(n))
      *
      * @return array
@@ -93,7 +93,7 @@ class MaxHeap extends BaseHeap
     {
         $this->build($elements);
         for ($i = $this->size() -1, $n = 1; $i > 0; $i--, $n++) {
-            // exchange first (maximum) element with last
+            // exchange first (minimum) element with last
             $this->exch($i, 0);
             // move maximum element of actual part of heap array to the top
             $this->heapify(0, $n);

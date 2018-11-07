@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\DataStructures\Graph;
+use App\DataStructures\MinHeap;
 use App\DataStructures\WeightedGraph;
 use App\Services\Graph\DFS;
 use App\Services\Graph\DFSR;
