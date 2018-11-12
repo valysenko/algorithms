@@ -6,7 +6,7 @@ use App\DataStructures\Graph;
 
 /**
  * Topological Sort for Directed graph
- * - using DFS recoursive algorithm
+ * - using DFS recursive algorithm
  *
  * => Specify linear order of vertices so that:
  * - any edge leads from the vertex with a smaller number to the vertex with a larger number.

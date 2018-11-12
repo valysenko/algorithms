@@ -60,11 +60,11 @@ class MinHeap extends BaseHeap
         if ($this->size() === 1) {
             return array_pop($this->elements);
         }
-        $max = $this->elements[0];
+        $min = $this->elements[0];
         $this->elements[0] = array_pop($this->elements);
         $this->heapify(0);
 
-        return $max;
+        return $min;
     }
 
     /**
